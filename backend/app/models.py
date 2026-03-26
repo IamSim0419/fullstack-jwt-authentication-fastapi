@@ -1,16 +1,15 @@
-from pydantic import Field
+from sqlalchemy import Column, Integer, String
 from database import engine
 from database import Base
 
 class User(Base):
     __tablename__ = "users"
 
-    id: int = Field(default=None, primary_key=True)
-    username: str = Field(default=None, unique=True)
-    hashed_password: str = Field(default=None)
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
 
-# Create the database tables based on the defined models
-User.metadata.create_all(bind=engine)
+
 
 
 

@@ -1,15 +1,12 @@
-from fastapi import FastAPI, HTTPException, status
-from sqlalchemy.orm import Session
-
-
-from passlib.context import CryptContext
-from models import User
-from pydantic import BaseModel
+from fastapi import FastAPI
+from app.database import Base, engine
+from app.routes import auth_route
 from fastapi.middleware.cors import CORSMiddleware
 
+# Create the database tables based on the defined models
+Base.metadata.create_all(bind=engine)
+
 app = FastAPI()
-
-
 
 origins = [
     "http://localhost:3000",
@@ -24,9 +21,11 @@ app.add_middleware(
     allow_headers=["*"], # Allows all headers
 )
 
+app.include_router(auth_route.router)
 
-
-
+@app.get("/")
+def health():
+    return {"status": "ok🎉"}
 
 
 
