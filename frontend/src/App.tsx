@@ -1,3 +1,5 @@
+import Login from "./pages/Login";
+
 function App() {
   return (
     <>
@@ -5,7 +7,8 @@ function App() {
         <h1 className="text-2xl font-bold bg-black text-white">
           Welcome to My App
         </h1>
-        <p>This is a simple React app.</p>
+        <p>This is a simple JWT authentication app.</p>
+        <Login />
       </main>
     </>
   );
