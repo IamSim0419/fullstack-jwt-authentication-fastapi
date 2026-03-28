@@ -6,7 +6,7 @@ from app.schemas.user_schema import UserCreate, UserLogin, Token
 from app.auth import hash_password, verify_password, create_access_token
 from app.config import ACCESS_TOKEN_EXPIRE_MINUTES
 
-router = APIRouter(prefix="auth", tags=["Auth"])
+router = APIRouter(prefix="/auth", tags=["Auth"])
 
 def get_db():
     db = SessionLocal()

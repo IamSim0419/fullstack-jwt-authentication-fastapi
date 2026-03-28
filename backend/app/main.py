@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # Create the database tables based on the defined models
 Base.metadata.create_all(bind=engine)
 
+# Run: uvicorn app.main:app --reload
 app = FastAPI()
 
 origins = [
