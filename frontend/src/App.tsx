@@ -1,17 +1,27 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./auth/AuthContext";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./auth/ProtectedRoute";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <main>
-        <h1 className="text-2xl font-bold bg-black text-white">
-          Welcome to My App
-        </h1>
-        <p>This is a simple JWT authentication app.</p>
-        <Login />
-      </main>
-    </>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
-
-export default App;

@@ -2,15 +2,15 @@ import { useState } from "react";
 import { useAuth } from "../auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
-  const { login } = useAuth();
+export default function Register() {
+  const { register } = useAuth();
   const nav = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submit = async () => {
-    await login(email, password);
-    nav("/dashboard");
+    await register(email, password);
+    nav("/login");
   };
 
   return (
@@ -28,7 +28,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button onClick={submit} className="bg-black text-white w-full p-2">
-          Login
+          Register
         </button>
       </div>
     </div>
