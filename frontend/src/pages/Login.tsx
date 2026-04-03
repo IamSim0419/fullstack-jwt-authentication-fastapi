@@ -27,9 +27,21 @@ export default function Login() {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={submit} className="bg-black text-white w-full p-2">
+        <button
+          onClick={submit}
+          className="bg-black text-white w-full p-2 cursor-pointer hover:bg-gray-700 "
+        >
           Login
         </button>
+
+        <div className="mt-4">
+          <p className="text-sm">
+            Don't have an account?{" "}
+            <a href="/register" className="text-blue-500 hover:underline">
+              Register here
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

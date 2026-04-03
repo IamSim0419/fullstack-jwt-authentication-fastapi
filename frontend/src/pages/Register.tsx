@@ -27,9 +27,21 @@ export default function Register() {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={submit} className="bg-black text-white w-full p-2">
+        <button
+          onClick={submit}
+          className="bg-black text-white w-full p-2 cursor-pointer"
+        >
           Register
         </button>
+
+        <div className="mt-4">
+          <p className="text-sm">
+            Already have an account?{" "}
+            <a href="/login" className="text-blue-500 hover:underline">
+              Login
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -9,6 +9,8 @@ export default function Dashboard() {
       <button onClick={logout} className="mt-4 bg-red-500 text-white px-4 py-2">
         Logout
       </button>
+
+      <h1 className="text-lg mt-4 font-bold">Welcome to your dashboard!</h1>
     </div>
   );
 }
