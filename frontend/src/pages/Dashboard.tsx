@@ -5,12 +5,17 @@ export default function Dashboard() {
 
   return (
     <div className="p-6">
-      <h1 className="text-xl font-bold">Dashboard</h1>
-      <button onClick={logout} className="mt-4 bg-red-500 text-white px-4 py-2">
-        Logout
-      </button>
+      <div className="flex justify-between items-center">
+        <h1 className="text-xl font-bold">Dashboard</h1>
+        <button
+          onClick={logout}
+          className="mt-4 bg-red-500 text-white px-4 py-2 hover:bg-red-600 rounded cursor-pointer"
+        >
+          Logout
+        </button>
+      </div>
 
-      <h1 className="text-lg mt-4 font-bold">Welcome to your dashboard!</h1>
+      <h1 className="text-2xl mt-4 font-medium">Welcome to your dashboard!</h1>
     </div>
   );
 }
